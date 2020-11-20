@@ -28,7 +28,9 @@ function showModalWindow() {
     main.classList.remove('noOverlay');
     main.classList.add('overlay');
     window.onclick = function(event) {
-        if (event.target == main) {
+        if (event.target == main ||
+            (event.target.parentNode.className.includes('main') &&
+                !event.target.className.includes('button'))) {
             hideModalWindow();
         }
     }
